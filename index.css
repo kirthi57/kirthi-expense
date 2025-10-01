@@ -1,0 +1,344 @@
+:root {
+  --primary-color: #5E5CE6; /* A vibrant purple */
+  --secondary-color: #34C759; /* A bright green */
+  --background-color: #F2F2F7;
+  --text-color: #1C1C1E;
+  --text-color-secondary: #8A8A8E;
+  --card-background: #FFFFFF;
+  --border-color: #E5E5EA;
+  --danger-color: #FF3B30;
+  --warning-color: #FF9500;
+  --font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem 1rem 80px 1rem; /* Padding at bottom for nav bar */
+}
+
+header {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
+  color: var(--primary-color);
+  font-size: 2.2em;
+  font-weight: 700;
+  margin: 0;
+}
+
+.page {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.page-image {
+    display: block;
+    max-width: 250px;
+    height: auto;
+    margin: 0 auto 1.5rem auto;
+}
+
+.card {
+  background-color: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.card h2, .page h2 {
+  margin-top: 0;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-color-secondary);
+}
+
+.form-group input,
+.form-group select,
+.history-filter-container select {
+  width: 100%;
+  padding: 0.85rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  background-color: #F9F9F9;
+  color: var(--text-color); /* Ensure typing color is black */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.history-filter-container select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(94, 92, 230, 0.2);
+}
+
+.btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.btn:hover {
+  background-color: #4B4ACD;
+}
+
+.target-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.summary-item h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--text-color-secondary);
+  font-size: 1em;
+}
+
+.summary-item p {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.summary-item small {
+  color: var(--text-color-secondary);
+}
+
+.progress-bar {
+  width: 100%;
+  background-color: var(--border-color);
+  border-radius: 10px;
+  height: 8px;
+  margin-top: 0.75rem;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  transition: width 0.5s ease-in-out;
+}
+
+.progress-bar-fill.over-budget {
+  background-color: var(--warning-color);
+}
+
+.history-filter-container {
+  margin-bottom: 1.5rem;
+}
+
+.history-filter-container label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-color-secondary);
+}
+
+.expense-list ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.expense-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0.5rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.expense-item:last-child {
+  border-bottom: none;
+}
+
+.expense-details {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.expense-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.expense-category {
+  font-weight: 500;
+}
+
+.expense-date {
+  font-size: 0.8rem;
+  color: var(--text-color-secondary);
+}
+
+.expense-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.expense-amount {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: var(--danger-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.delete-btn svg {
+  width: 20px;
+  height: 20px;
+}
+
+.delete-btn:hover {
+  background-color: #FFEBEE;
+}
+
+.category-breakdown {
+    margin-top: 1.5rem;
+}
+
+.category-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+    padding: 0.5rem 0;
+}
+
+.category-item span {
+    font-weight: 500;
+}
+
+.category-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: var(--primary-color);
+    background-color: #F0F0FF;
+}
+
+.category-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Navigation Bar */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--card-background);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 0;
+    z-index: 1000;
+}
+
+.bottom-nav button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 0.5rem;
+    color: var(--text-color-secondary);
+    transition: color 0.3s ease;
+    font-size: 0.75rem;
+    width: 64px; /* Give buttons a fixed width */
+}
+
+.bottom-nav button svg {
+    width: 24px;
+    height: 24px;
+}
+
+.bottom-nav button:hover,
+.bottom-nav button.active {
+    color: var(--primary-color);
+}
+
+@media (max-width: 600px) {
+  .app-container {
+    margin: 0;
+    padding: 1rem 1rem 80px 1rem;
+  }
+  
+  .summary-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  header h1 {
+    font-size: 1.8em;
+  }
+}
